@@ -23,7 +23,9 @@ class _ServiceDetailState extends State<ServiceDetail> {
     'images/handyman.jpg',
     'images/mechanic.jpeg',
     'images/moving.jpg',
-    'images/plumbing.jpg'
+    'images/plumbing.jpg',
+    'images/furniture_cleaning.jpg',
+    'images/teaching.jpg'
   ];
   @override
   Widget build(BuildContext context) {
@@ -100,18 +102,6 @@ class _ServiceDetailState extends State<ServiceDetail> {
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'These services have very good quality and our workers are also experienced.',
-                  style: TextStyle(fontSize: 16),
-                ),
-                Text(
-                  'These services have very good quality and our workers are also experienced.',
-                  style: TextStyle(fontSize: 16),
-                ),
-                Text(
-                  'These services have very good quality and our workers are also experienced.',
-                  style: TextStyle(fontSize: 16),
-                ),
                 Text(
                   'These services have very good quality and our workers are also experienced.',
                   style: TextStyle(fontSize: 16),

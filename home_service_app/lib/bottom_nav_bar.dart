@@ -3,7 +3,8 @@ import 'package:home_service_app/home_screen.dart';
 
 import 'my_account.dart';
 import 'selected_services.dart';
-import 'services.dart';
+//import 'services.dart';
+import 'services_extra.dart';
 
 class BottomNavBar extends StatefulWidget {
   final int initialIndex;
@@ -32,7 +33,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         _navigateToRoute(context, '/home', HomeScreen());
         break;
       case 1:
-        _navigateToRoute(context, '/services', Services());
+        _navigateToRoute(context, '/servicesprovider', ServiceProvider());
         break;
       case 2:
         _navigateToRoute(context, '/myaccount', MyAccount());
@@ -78,7 +79,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home_repair_service_outlined,
                 color: _selectedIndex == 1 ? Colors.blue[300] : Colors.black),
-            label: 'Services',
+            label: 'Services Provider',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_2_outlined,
