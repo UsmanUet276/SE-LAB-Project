@@ -1,4 +1,4 @@
-import 'dart:ui_web';
+//import 'dart:ui_web';
 
 import 'package:flutter/material.dart';
 
@@ -49,11 +49,11 @@ class _SelectedServicesState extends State<SelectedServices> {
     return total;
   }
 
-  void showCallDialog() {
+  /*void showCallDialog() {
     showDialog(
         context: context,
-        builder: (context) {
-          return AlertDialog(
+        builder: (context){
+          (
             title: Text('Call Service'),
             content: Text('Hurray! You have Order this service Successfully'),
             actions: [
@@ -66,7 +66,7 @@ class _SelectedServicesState extends State<SelectedServices> {
             ],
           );
         });
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -181,7 +181,7 @@ class _SelectedServicesState extends State<SelectedServices> {
                     Expanded(
                       child: ElevatedButton(
                         onPressed: () {
-                          showCallDialog();
+                          //showCallDialog();
                         },
                         style:
                             ElevatedButton.styleFrom(primary: Colors.blue[300]),
