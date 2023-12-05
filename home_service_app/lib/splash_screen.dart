@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+//import 'login_screen.dart';
+import 'welcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -33,6 +35,21 @@ class _SplashScreenState extends State<SplashScreen>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            //
+            Align(
+              alignment: Alignment.bottomRight,
+              child: TextButton(
+                onPressed: () {
+                  //navigate to home screen
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const WelcomeScreen()));
+                },
+                child: const Text(
+                  'Skip',
+                  style: TextStyle(color: Colors.red, fontSize: 16),
+                ),
+              ),
+            ), //
             ScaleTransition(
               scale: Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(
                 parent: _animationController,

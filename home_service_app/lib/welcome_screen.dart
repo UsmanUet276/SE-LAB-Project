@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home_screen.dart';
+//import 'home_screen.dart';
+import 'login_screen.dart';
 //import 'dart:async';
 
 class WelcomeScreen extends StatefulWidget {
@@ -44,7 +45,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     onPressed: () {
                       //navigate to home screen
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const HomeScreen()));
+                          builder: (context) => const LoginScreen()));
                     },
                     child: const Text(
                       'Skip',
@@ -122,7 +123,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             } else {
               //navigate to home screen
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const HomeScreen()));
+                  MaterialPageRoute(builder: (context) => const LoginScreen()));
             }
           },
           child: _currentPage != welcomeSlider.length - 1
