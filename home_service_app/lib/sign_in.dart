@@ -12,6 +12,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  // Text editing controllers for email and password
   final TextEditingController _emailAddressController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
@@ -19,6 +20,7 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        // Handling tap outside of text fields to unfocus
         FocusScopeNode currentFocus = FocusScope.of(context);
         if (!currentFocus.hasPrimaryFocus &&
             currentFocus.focusedChild != null) {
@@ -32,6 +34,7 @@ class _SignInState extends State<SignIn> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Title for login
                 const Text(
                   'Login',
                   style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
@@ -42,6 +45,7 @@ class _SignInState extends State<SignIn> {
                   style: TextStyle(fontSize: 20, color: Colors.grey),
                 ),
                 const SizedBox(height: 40),
+                // Text form field for email
                 TextFormField(
                   controller: _emailAddressController,
                   style: const TextStyle(
@@ -54,6 +58,7 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 const SizedBox(height: 10),
+                // Text form field for password
                 TextFormField(
                   controller: _passwordController,
                   obscureText: true,
@@ -77,6 +82,7 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
                 const SizedBox(height: 10),
+                // Button for login
                 Align(
                   alignment: Alignment.centerRight,
                   child: SizedBox(
@@ -103,6 +109,7 @@ class _SignInState extends State<SignIn> {
                 ),
               ]),
         ),
+        // Bottom navigation bar for navigation to sign-up screen
         bottomNavigationBar: SizedBox(
           height: 60,
           child: Row(

@@ -10,6 +10,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  // Text editing controllers for name, email, password, and confirm password
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailAddressController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -20,6 +21,7 @@ class _SignUpState extends State<SignUp> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        // Handling tap outside of text fields to unfocus
         FocusScopeNode currentFocus = FocusScope.of(context);
         if (!currentFocus.hasPrimaryFocus &&
             currentFocus.focusedChild != null) {
@@ -46,11 +48,13 @@ class _SignUpState extends State<SignUp> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Title for create account
                   const Text(
                     'Create Account',
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 40),
+                  // Text fields for name, email, password, and confirm password
                   TextFields(
                     label: 'FULL NAME',
                     icon: const Icon(Icons.person_2_outlined),
@@ -77,6 +81,7 @@ class _SignUpState extends State<SignUp> {
                     controller: _confirmPasswordController,
                   ),
                   const SizedBox(height: 10),
+                  // Button for sign up
                   Align(
                     alignment: Alignment.centerRight,
                     child: SizedBox(
@@ -109,6 +114,7 @@ class _SignUpState extends State<SignUp> {
             ),
           ),
         ),
+        // Bottom navigation bar for navigation to sign-in screen
         bottomNavigationBar: SizedBox(
           height: 60,
           child: Row(
@@ -142,6 +148,7 @@ class _SignUpState extends State<SignUp> {
   }
 }
 
+// Custom widget for text fields
 class TextFields extends StatelessWidget {
   final Icon icon;
   final String label;
