@@ -20,6 +20,7 @@ class _ServiceProviderState extends State<ServiceProvider> {
   @override
   void initState() {
     super.initState();
+    // Initialize the list of service providers
     service = [
       Service(
           name: 'Name: ALI(Plumber)',
@@ -63,6 +64,7 @@ class _ServiceProviderState extends State<ServiceProvider> {
         body: SafeArea(
             child: Column(
           children: [
+            // Search bar at the top
             Container(
               height: 80,
               width: MediaQuery.of(context).size.width,
@@ -72,6 +74,7 @@ class _ServiceProviderState extends State<ServiceProvider> {
                 margin: const EdgeInsets.all(16.0),
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(children: [
+                  // Expanded GridView to display service providers
                   Expanded(
                     child: TextField(
                       decoration: InputDecoration(
@@ -115,6 +118,7 @@ class _ServiceProviderState extends State<ServiceProvider> {
     );
   }
 
+  // Widget to build each service provider card
   Widget buildService(Service service) {
     return GestureDetector(
       onTap: () async {
@@ -124,6 +128,7 @@ class _ServiceProviderState extends State<ServiceProvider> {
       child: Card(
           child: Column(
         children: [
+          // Image carousel for service provider images
           SizedBox(
             height: MediaQuery.of(context).size.height / 10,
             child: PageView.builder(
@@ -141,6 +146,7 @@ class _ServiceProviderState extends State<ServiceProvider> {
               },
             ),
           ),
+          // Circle avatars for indicating the current image
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children:
@@ -156,6 +162,7 @@ class _ServiceProviderState extends State<ServiceProvider> {
               );
             }),
           ),
+          // ListTile for service provider details
           ListTile(
             title: Text(
               service.name,
@@ -179,6 +186,7 @@ class _ServiceProviderState extends State<ServiceProvider> {
   }
 }
 
+// Service class for representing a service provider
 class Service {
   final String name;
   final String price;
