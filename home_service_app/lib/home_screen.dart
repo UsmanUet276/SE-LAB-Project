@@ -20,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
+    // Initialize sample service data
     service = [
       Service(title: 'Plumbing', price: '\$9', images: [
         'images/plumbing.jpg',
@@ -53,6 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        // Dismiss the keyboard when tapping outside of text fields
         FocusScopeNode currentFocus = FocusScope.of(context);
         if (!currentFocus.hasPrimaryFocus &&
             currentFocus.focusedChild != null) {
@@ -64,6 +66,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
           children: [
             Container(
+              // Search bar
               height: 80,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(color: Colors.blue[200]),
@@ -72,6 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 margin: const EdgeInsets.all(16.0),
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(children: [
+                  // Display services in a grid
                   Expanded(
                     child: TextField(
                       decoration: InputDecoration(
@@ -115,6 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+// Build individual service card
   Widget buildService(Service service) {
     return GestureDetector(
       onTap: () async {
@@ -124,6 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Card(
           child: Column(
         children: [
+          // Image carousel for displaying service images
           SizedBox(
             height: MediaQuery.of(context).size.height / 10,
             child: PageView.builder(
@@ -141,6 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
+          // Image indicator circles
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children:
@@ -156,6 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
               );
             }),
           ),
+          // Service details (title, price, and a label)
           ListTile(
             title: Text(
               service.title,
@@ -179,6 +187,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
+// Service class to represent a home service
 class Service {
   final String title;
   final String price;
