@@ -16,6 +16,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        // Dismiss the keyboard when tapping outside of text fields
         FocusScopeNode currentFocus = FocusScope.of(context);
         if (!currentFocus.hasPrimaryFocus &&
             currentFocus.focusedChild != null) {
@@ -48,18 +49,20 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   ),
                   const SizedBox(height: 40),
                   TextFields(
+                    // TextFields widget for email input
                     label: 'EMAIL',
                     icon: const Icon(Icons.email_outlined),
                     controller: _emailAddressController,
                   ),
                   const SizedBox(height: 10),
+                  // Reset password button
                   Align(
                     alignment: Alignment.centerRight,
                     child: SizedBox(
                       height: 50,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.of(context).pop();
+                          Navigator.of(context).pop(); // Navigate back
                         },
                         style: ElevatedButton.styleFrom(
                             primary: Colors.blue[300],
@@ -82,6 +85,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             ),
           ),
         ),
+        // Bottom navigation bar for navigation options
         bottomNavigationBar: SizedBox(
           height: 60,
           child: Row(
@@ -95,6 +99,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                     fontSize: 15),
               ),
               TextButton(
+                // Navigate to Sign In screen
                 onPressed: () {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => const SignIn()));
@@ -115,6 +120,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   }
 }
 
+// TextFields widget for reusable text input fields
 class TextFields extends StatelessWidget {
   final Icon icon;
   final String label;
