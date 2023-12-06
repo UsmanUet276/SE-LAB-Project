@@ -11,6 +11,7 @@ class Services extends StatefulWidget {
 }
 
 class _ServicesState extends State<Services> {
+  // Lists to store data for services
   List<String> imageUrls = [];
   List<String> names = ['Ali', 'Ahamd', 'Rehan', 'Alia', 'Muhammad'];
   List<String> service = [
@@ -26,9 +27,11 @@ class _ServicesState extends State<Services> {
   @override
   void initState() {
     super.initState();
+    // Fetch images from Firebase Storage
     fetchImages();
   }
 
+// Fetch images from Firebase Storage
   Future<void> fetchImages() async {
     FirebaseStorage storage = FirebaseStorage.instance;
     for (int i = 1; i <= 5; i++) {
@@ -55,6 +58,7 @@ class _ServicesState extends State<Services> {
                 margin: const EdgeInsets.all(16.0),
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(children: [
+                  // Expanded GridView to display services
                   Expanded(
                     child: TextField(
                       decoration: InputDecoration(
@@ -88,6 +92,7 @@ class _ServicesState extends State<Services> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // Row for displaying name and rating
                         Row(
                           children: [
                             Padding(
@@ -185,6 +190,7 @@ class _ServicesState extends State<Services> {
   }
 }
 
+// ServiceProvider class for representing a service provider
 class ServiceProvider {
   final String image;
   final String name;
