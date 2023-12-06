@@ -39,11 +39,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             padding: const EdgeInsets.all(14.0),
             child: Column(
               children: [
+                 // "Skip" button at the top right
                 Align(
                   alignment: Alignment.topRight,
                   child: TextButton(
                     onPressed: () {
-                      //navigate to home screen
+                      // Navigate to the LoginScreen when the "Skip" button is pressed
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => const LoginScreen()));
                     },
@@ -54,6 +55,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                 ),
                 const SizedBox(height: 25),
+                 // PageView for displaying welcome sliders
                 Expanded(
                   child: PageView.builder(
                     controller: _pageController,
@@ -67,11 +69,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       final item = welcomeSlider[index];
                       return Column(
                         children: [
+                          // Image for the welcome slider
                           Image.asset(
                             item.image,
                             height: 350,
                           ),
                           const SizedBox(height: 10),
+                          // Title text for the welcome slider
                           Text(item.title,
                               style: Theme.of(context)
                                   .textTheme
@@ -81,6 +85,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                                       fontWeight: FontWeight.bold,
                                       fontSize: 28)),
                           const SizedBox(height: 5),
+                          // Description text for the welcome slider
                           Text(
                             item.description,
                             style: const TextStyle(
@@ -92,6 +97,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     },
                   ),
                 ),
+                // Indicator dots for each welcome slider
                 Row(
                   children: List.generate(3, (index) {
                     return Padding(
@@ -113,15 +119,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             ),
           ),
         ),
+        // Floating Action Button for navigation
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.red,
           onPressed: () {
             if (_currentPage < welcomeSlider.length - 1) {
+               // Move to the next page if available
               _pageController.nextPage(
                   duration: const Duration(milliseconds: 300),
                   curve: Curves.easeOut);
             } else {
-              //navigate to home screen
+              // Navigate to the LoginScreen when the last page is reached
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => const LoginScreen()));
             }
@@ -134,7 +142,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     );
   }
 }
-
+// Class representing a Welcome Slider with title, description, and image
 class WelcomeSlider {
   final String title;
   final String description;

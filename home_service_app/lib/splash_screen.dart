@@ -18,24 +18,29 @@ class _SplashScreenState extends State<SplashScreen>
   @override
   void initState() {
     super.initState();
+    // Initialize Animation Controller for controlling the animation
     _animationController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
-    ); // Animation Controller
+    ); 
+     // Start the animation
     _animationController.forward();
+    // Set a timer for 3 seconds (in this case, an empty function is called after 3 seconds)
     Timer(const Duration(seconds: 3), () {}); // Timer
   }
 
   // This widget is the root of your application.
   @override
+    // Build the UI for the SplashScreen
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue,
+      // Center the content on the screen
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            //
+            // "Skip" button at the bottom right
             Align(
               alignment: Alignment.bottomRight,
               child: TextButton(
@@ -49,7 +54,8 @@ class _SplashScreenState extends State<SplashScreen>
                   style: TextStyle(color: Colors.red, fontSize: 16),
                 ),
               ),
-            ), //
+            ), 
+             // Animated logo using ScaleTransition
             ScaleTransition(
               scale: Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(
                 parent: _animationController,

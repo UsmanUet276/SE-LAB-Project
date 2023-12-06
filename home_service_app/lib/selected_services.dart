@@ -13,6 +13,7 @@ class SelectedServices extends StatefulWidget {
 }
 
 class _SelectedServicesState extends State<SelectedServices> {
+  // Lists to store service provider names, quantities, prices, and images
   List<String> serviceProviderNames = [
     'ALI',
     'AHMAD',
