@@ -24,14 +24,19 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           child: Column(children: [
+            // Padding for spacing
             const Padding(
               padding: EdgeInsets.fromLTRB(5, 120, 5, 20),
             ),
+            // App logo
             Image.asset(
               'images/logo_black_white.png',
               height: 150,
             ),
+            // SizedBox for vertical spacing
+
             const SizedBox(height: 100),
+            // Button for navigating to SignUp screen
             Button(
               onPressed: () {
                 Navigator.of(context).push(
@@ -39,7 +44,9 @@ class LoginScreen extends StatelessWidget {
               },
               text: 'SIGN UP',
             ),
+            // SizedBox for vertical spacing
             const SizedBox(height: 45),
+            // Button for navigating to SignIn screen
             Button(
               onPressed: () {
                 Navigator.of(context).push(
@@ -47,7 +54,9 @@ class LoginScreen extends StatelessWidget {
               },
               text: 'SIGN IN',
             ),
+            // Spacer to push content to the bottom
             const Spacer(),
+            // Skip button at the bottom right
             Padding(
               padding: const EdgeInsets.only(bottom: 30, right: 20),
               child: Align(
@@ -74,6 +83,7 @@ class LoginScreen extends StatelessWidget {
   }
 }
 
+// Button widget for consistent styling of buttons
 class Button extends StatelessWidget {
   String text;
   final void Function() onPressed;
