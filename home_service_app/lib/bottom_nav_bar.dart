@@ -23,11 +23,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
     _selectedIndex = widget.initialIndex;
   }
 
+// Method to handle bottom navigation item tapped
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
-
+    // Switch based on the selected index to navigate to the respective screen
     switch (index) {
       case 0:
         _navigateToRoute(context, '/home', HomeScreen());
@@ -44,13 +45,16 @@ class _BottomNavBarState extends State<BottomNavBar> {
     }
   }
 
+  // Method to navigate to the specified route or replace the current route
   void _navigateToRoute(context, String routeName, Widget screen) {
     final String? currentRouteName = ModalRoute.of(context)?.settings.name;
     bool routeExists = currentRouteName == routeName;
 
     if (routeExists) {
+      // If the route already exists, pop until reaching that route
       Navigator.popUntil(context, ModalRoute.withName(routeName));
     } else {
+      // If the route doesn't exist, push the new route and replace the current one
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -63,6 +67,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
+    // Return the BottomNavigationBar widget with specified properties
     return BottomNavigationBar(
         currentIndex: _selectedIndex,
         type: BottomNavigationBarType.fixed,
