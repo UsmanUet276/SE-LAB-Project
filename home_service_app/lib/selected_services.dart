@@ -30,18 +30,19 @@ class _SelectedServicesState extends State<SelectedServices> {
     'images/person3.png',
     'images/person4.png'
   ];
+  // Increment quantity for the selected service
   void incrementQuantity(int index) {
     setState(() {
       quantities[index]++;
     });
   }
-
+// Decrement quantity for the selected service
   void decrementQuantity(int index) {
     setState(() {
       quantities[index]--;
     });
   }
-
+// Calculate the total cost of selected services
   double getServiceTool() {
     double total = 0.0;
     for (int i = 0; i < serviceProviderNames.length; i++) {

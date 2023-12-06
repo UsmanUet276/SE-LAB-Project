@@ -11,12 +11,13 @@ class ServiceDetail extends StatefulWidget {
 class _ServiceDetailState extends State<ServiceDetail> {
   int _currentSlide = 0;
   int selectedButton = 2;
-
+// Function to handle button selection
   void selectButton(int buttonIndex) {
     setState(() {
       selectedButton = buttonIndex;
     });
   }
+  // List of images for the carousel slider
 
   final List<String> _image = [
     'images/electrical.jpeg',
@@ -44,6 +45,7 @@ class _ServiceDetailState extends State<ServiceDetail> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          // Carousel slider for displaying images
           CarouselSlider(
             options: CarouselOptions(
                 height: 200.0,
@@ -62,6 +64,7 @@ class _ServiceDetailState extends State<ServiceDetail> {
               });
             }).toList(),
           ),
+          // Container for displaying service details
           Container(
             color: Colors.white,
             padding: const EdgeInsets.all(16),
@@ -85,6 +88,7 @@ class _ServiceDetailState extends State<ServiceDetail> {
                 ]),
           ),
           const SizedBox(height: 16),
+          // Padding for the service description title
           const Padding(
             padding: EdgeInsets.all(18.0),
             child: Text(
@@ -92,6 +96,7 @@ class _ServiceDetailState extends State<ServiceDetail> {
               style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.bold),
             ),
           ),
+          // Container for displaying service description
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 16.0),
             padding: const EdgeInsets.all(16.0),
@@ -114,6 +119,7 @@ class _ServiceDetailState extends State<ServiceDetail> {
             ),
           ),
           const Spacer(),
+          // Row of buttons for re-ordering and viewing selected services
           Row(
             children: [
               Expanded(
